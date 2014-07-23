@@ -7,20 +7,23 @@ Method publication:
 
 ## About R interface
 
-The interface works by making a system call from within *R*. Therefore the *croc* python package must be installed prior to use. Designed for unix-like systems. Currently only the exponential transformation is supported, although the code may provide a template for using a different transform.
+The interface works by making a system call from within *R*. Therefore the *croc* python package must be installed prior to use. The code has been designed for unix-like systems and may not work on other platforms. Currently only the exponential transformation is supported, although the code may provide a template for using a different transformation.
 
 ### Functions
 
+#### Compute the CROC with an exponential FPR transform.
 ```R
 CROC(score, status, directory, alpha=7)
 ```
-where `score` is the predicted score/ranking, `status` is the binary outcome, `directory` (optional) specifies a directory to store temporary files and should not currently exist, and `alpha` is the exponential scaling parameter.
+where `score` is the predicted score/ranking, `status` is the binary outcome, `directory` (optional) specifies a directory to store temporary files and should not currently exist, and `alpha` is the exponential scaling parameter. Returns a list where `auc` is the area under the curve, `curve.df` is a data.frame of the CROC curve, and `random.df` is a data.frame of the CROC curve corresponding to a random classifier.
 
+#### Find alpha from a predetermined FPR mapping.
 ```R
 FindAlpha(fpr0, fpr1)
 ```
-returns the value of *alpha* that transforms an untransformed FPR (`fpr0`) to an exponentially scaled FPR (`fpr1`). Currently will not identify alphas exceeding 750.
+finds the value of *alpha* that maps `fpr0` to `fpr1` when performing the exponential transformation. This corresponds to the notation f(`fpr0`) = `fpr1` used by the paper. Currently, if the function returns an *alpha* greater than or equal to 750, the result is likely false. This occurs when mapping a very small FPR to a very large FPR and will not effect the range of scalings explored in the paper.
 
+#### Exponentially transform a FPR.
 ```R
 ExpTransform(fpr, alpha)
 ```
