@@ -1,9 +1,10 @@
 ## About CROCs
 
-An unofficial *R* interface to the [*croc* python package](https://pypi.python.org/pypi/CROC/) providing tools for Condensed ROC (CROC) curves. CROCs transform the false positive rate (FPR, or x-axis of an ROC curve) to emphasize the performance of top predictions. Since the transformation applied to the FPR is continuous, this method has the advantage of upweighting *early retrieval* without relying on an arbitrary, binary threshold of where *early* ends. To learn more read the [publication](http://dx.doi.org/10.1093/bioinformatics/btq140) or browse the [python documentation](http://swami.wustl.edu/CROC/). 
+An unofficial *R* interface to the [*croc* python package](https://pypi.python.org/pypi/CROC/) providing tools for Condensed ROC (CROC) curves. CROCs transform the false positive rate (FPR, or x-axis of an ROC curve) to emphasize the performance of top predictions. Since the transformation applied to the FPR is continuous, this method has the advantage of upweighting *early retrieval* without relying on an arbitrary, binary threshold of where *early* ends. To learn more read the [publication](https://dx.doi.org/10.1093/bioinformatics/btq140) or browse the [python documentation](http://swami.wustl.edu/CROC/). 
 
 Method publication:
-> Swamidass SJ, Azencott CA, Daily K, Baldi P (2010). A CROC stronger than ROC: measuring, visualizing and optimizing early retrieval. *Bioinformatics* 26(10): 1348-1356
+
+> Swamidass SJ, Azencott CA, Daily K, Baldi P (2010). A CROC stronger than ROC: measuring, visualizing and optimizing early retrieval. *Bioinformatics*. [doi:10.1093/bioinformatics/btq140](https://dx.doi.org/10.1093/bioinformatics/btq140)
 
 ## About R interface
 
